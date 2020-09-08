@@ -1,0 +1,41 @@
+.line {
+  position: relative;
+  display: inline-block;
+  padding: 0 55px;
+}
+
+.line:before, .line:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  width: 45px;
+  height: 1px;
+  background-color: black;
+}
+.line:before {
+  left:0;
+}
+.line:after {
+  right: 0;
+}
+
+.app_image img {
+  width: 130px;
+}
+
+.clearfix:after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.footer-nav ul {
+  list-style: none;
+}
+
+.footer-nav li {
+  float: left;
+  margin: 5px;
+  font-size: 12px;
+}

@@ -1,6 +1,54 @@
-<h1>Sign up</h1>
+<div class="main">
+  <h1>Instagram</h1>
 
-<%= form_with(model: @user, local: true) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-<% end %>
+  <p>Sign up to see photos and videos from your friends.</p>
+
+  <div>
+    <a href="">Log in with Facebook</a>
+  </div>
+
+  <p class="line">or</p>
+
+
+
+  <%= form_with(model: @user, local: true) do |f| %>
+    <%= f.text_field :email, placeholder: "Email" %><br>
+    <%= f.text_field :name, placeholder: "Name" %><br>
+    <%= f.password_field :password, placeholder: "Password" %><br>
+    <%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %><br>
+    <div>
+      <%= f.submit 'Sign up' %>
+    </div>
+  <% end %>
+
+  <p>By signing up, you agree to our Terms, Data Policy and Cookies Policy.</p>
+</div>
+
+<div>
+  <p>Have an account? <a href="">Log in</a></p>
+</div>
+
+<footer>
+  <p>Get the app.</p>
+  <div class="app_image">
+  <%= image_tag 'apple_app.png' %>
+  <%= image_tag 'google_app.png' %>
+  </div>
+
+  <div class="footer-nav clearfix">
+    <ul>
+      <li>ABOUT</li>
+      <li>HELP</li>
+      <li>PRESS</li>
+      <li>JPBS</li>
+      <li>PRIVACY</li>
+      <li>TERMS</li>
+      <li>LOCATIONS</li>
+      <li>TOP ACCOUNTS</li>
+      <li>HASHTAGS</li>
+      <li>LANGUAGE</li>
+    </ul>
+  </div>
+
+  <p>©︎2020 INSTAGRAM FROM FACEBOOK</p>
+</footer>

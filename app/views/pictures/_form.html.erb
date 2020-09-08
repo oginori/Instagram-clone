@@ -1,0 +1,8 @@
+<%= form_with(model: @picture, local: true) do |form| %>
+<div class="new_post_field">
+  <%= form.file_field :image %><br>
+  <%= form.label :content %><br>
+  <%= form.text_area :content %><br>
+  <%= form.submit %>
+</div>
+<% end %>
