@@ -8,8 +8,11 @@ class PicturesController < ApplicationController
   end
 
   def create
-    Picture.create(picture_params)
-    redirect_to new_picture_path
+    picture = Picture.new(picture_params)
+    if picture.save
+      redirect to new_picture_path
+    else
+    end
   end
 
   def edit
