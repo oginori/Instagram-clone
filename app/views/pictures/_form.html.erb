@@ -1,8 +1,12 @@
-<%= form_with(model: @picture, local: true) do |form| %>
+<%= form_with(model: @picture, local: true ) do |form| %>
 <div class="new_post_field">
+  <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %>
   <%= form.file_field :image %><br>
-  <%= form.label :content %><br>
+  <%= form.hidden_field :image_cache %>
+
+  <%= form.hidden_field :contet %><br>
   <%= form.text_area :content %><br>
+
   <%= form.submit %>
 </div>
 <% end %>

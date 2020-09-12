@@ -1,4 +1,4 @@
-<%= @pictures.each do |picture| %>
-<%= picture.image %>
-<%= picture.content %>
+<% @pictures.each do |picture| %>
+<%= image_tag(picture.image.url) %><br>
+<%= picture.content %><br>
 <% end %>
