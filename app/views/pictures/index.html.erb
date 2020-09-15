@@ -11,10 +11,13 @@
     <%= picture.content %><br>
     </div>
     <div>
+    <%= link_to '詳細', picture_path(picture.id) %>
+    </div>
+    <div>
     <%= link_to '編集', edit_picture_path(picture.id) %>
     </div>
     <div>
-    <%= link_to '削除', picture_path(picture.id), method: :delete, data: { confirm: 'Are you sure to delete this post?' } %> 
+    <%= link_to '削除', picture_path(picture.id), method: :delete, data: { confirm: 'Are you sure to delete this post?' } %>
     </div>
   </div>
   <% end %>
