@@ -1,4 +1,17 @@
-<% @pictures.each do |picture| %>
-<%= image_tag(picture.image.url) %><br>
-<%= picture.content %><br>
-<% end %>
+  <% @pictures.each do |picture| %>
+  <div class="post_group">
+    <div class="poster_info">
+    <%= picture.user.name %>
+    <%= picture.user.profile_image %>
+    </diV>
+    <div class="post_picture">
+    <%= image_tag(picture.image.url) %><br>
+    </div>
+    <div class="post_content">
+    <%= picture.content %><br>
+    </div>
+    <div>
+    <%= link_to '編集', edit_picture_path(picture.id) %> 
+    </div>
+  </div>
+  <% end %>

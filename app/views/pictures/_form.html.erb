@@ -1,12 +1,26 @@
-<%= form_with(model: @picture, local: true ) do |form| %>
-<div class="new_post_field">
-  <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %>
-  <%= form.file_field :image %><br>
-  <%= form.hidden_field :image_cache %>
+<%= form_with(model: @picture, local: true) do |form| %>
+  <% if @picture.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @picture.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @picture.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-  <%= form.hidden_field :contet %><br>
-  <%= form.text_area :content %><br>
+  <div class="post_field">
+    <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %>
+    <%= form.file_field :image %><br>
+    <%= form.hidden_field :image_cache %>
 
-  <%= form.submit %>
-</div>
+    <%= form.hidden_field :contet %><br>
+    <%= form.text_area :content %><br>
+
+    <%= form.submit %>
+  </div>
 <% end %>
+
+
+<%= link_to 'Back', pictures_path %>
