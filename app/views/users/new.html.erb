@@ -1,41 +1,45 @@
-<div class="main">
-  <h1>Instagram</h1>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="wrapper">
+  <div class="main">
+    <h1 class="title">Instagram</h1>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
+        <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <p class="explanation">Sign up to see photos and videos from your friends.</p>
+
+    <div class="facebook-button">
+      <a href="">Log in with Facebook</a>
     </div>
-  <% end %>
 
-  <p>Sign up to see photos and videos from your friends.</p>
+    <div class="line-wrapper">
+      <p class="line">or</p>
+    </div>
 
-  <div>
-    <a href="">Log in with Facebook</a>
+    <div class="form_wrapper">
+    <%= form_with(model: @user, local: true) do |f| %>
+      <%= f.text_field :email, placeholder: "Email" %><br>
+      <%= f.text_field :name, placeholder: "Name" %><br>
+      <%= f.password_field :password, placeholder: "Password" %><br>
+      <%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %><br>
+      <div>
+        <%= f.submit 'Sign up' %>
+      </div>
+    <% end %>
+    </div>
+
+    <p class="explanation">By signing up, you agree to our Terms, Data Policy and Cookies Policy.</p>
   </div>
 
-  <p class="line">or</p>
-
-
-
-  <%= form_with(model: @user, local: true) do |f| %>
-    <%= f.text_field :email, placeholder: "Email" %><br>
-    <%= f.text_field :name, placeholder: "Name" %><br>
-    <%= f.password_field :password, placeholder: "Password" %><br>
-    <%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %><br>
-    <div>
-      <%= f.submit 'Sign up' %>
+    <div class="main">
+      <p class="explanation">Have an account? <%= link_to "Log in", new_session_path %></p>
     </div>
-  <% end %>
-
-  <p>By signing up, you agree to our Terms, Data Policy and Cookies Policy.</p>
-</div>
-
-<div>
-  <p>Have an account? <%= link_to "Log in", new_session_path %></p>
 </div>
 
 <footer>

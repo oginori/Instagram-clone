@@ -1,9 +1,76 @@
+.main {
+  width: 480px;
+  margin: 20px auto;
+  padding: 30px;
+  border: 1px solid #dbdbdb;
+  background: #fff;
+}
+.title {
+  width: 480px;
+  margin: 30px auto;
+  text-align: center;
+}
+.explanation {
+  text-align: center;
+  width: 250px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
 .line {
   position: relative;
   display: inline-block;
   padding: 0 55px;
+  margin: 0 auto;
 }
 
+.form_wrapper {
+  text-align: center;
+}
+
+.facebook-button {
+  width: 250px;
+  background: #0095F6;
+  border: none;
+  padding: 8px;
+  margin: 3px auto;
+  text-align: center;
+
+}
+
+.facebook-button a {
+  text-decoration: none;
+  color: #fff;
+}
+input {
+  width: 250px;
+  padding: 8px;
+  margin: 3px;
+}
+
+input::placeholder {
+  color: #dcdcdc;
+}
+
+input[type="submit"] {
+  background: #0095F6;
+  color: #fff;
+  border: none;
+}
+
+input[type="file"] {
+  margin: 0 auto;
+  font-size: 12px;
+}
+input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+.line-wrapper {
+  margin: 20px auto;
+  width: 160px;
+  text-align: center;
+}
 .line:before, .line:after {
   content: '';
   position: absolute;
@@ -30,6 +97,11 @@
   display: block;
 }
 
+footer {
+  width: 480px;
+  margin: 0 auto;
+  text-align: center;
+}
 .footer-nav ul {
   list-style: none;
 }
@@ -38,4 +110,26 @@
   float: left;
   margin: 5px;
   font-size: 12px;
+}
+
+.wrapper {
+  width: 580px;
+  margin: 0 auto;
+}
+
+.profile_image {
+  width: 300px;
+  margin: 0 auto;
+}
+.profile_image img{
+  width: 300px;
+  margin: 0 auto;
+}
+
+.profile_name {
+  text-align: center;
+}
+
+.bottom-nav {
+  margin-left: 30px;
 }

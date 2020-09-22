@@ -1,19 +1,22 @@
-<h1><%= @user.name %>のページ</h1>
+<h1 class="title"><%= @user.name %></h1>
 
-<div class="profile_menu">
-  <%= link_to 'Edit Profile', edit_user_path(@user.id) %>
+<div class="wrapper">
+  <div class="btn btn-default">
+    <%= link_to 'Edit Profile', edit_user_path(@user.id) %>
+  </div>
+
+  <div class="profile_image">
+  <% if @user.profile_image.url %>
+    <%= image_tag(@user.profile_image.url) %>
+  <% else %>
+    <%= image_tag 'default_profile_image.jpg' %>
+  <% end %>
+  </div>
 </div>
 
-<div class="profile_image">
-<% if @user.profile_image %>
-  <%= image_tag(@user.profile_image.url) %>
-<% else %>
-  <%= image_tag 'default_profile_image.jpg' %>
-<% end %>
-</div>
-<div class="profile_name">
-<%= @user.name %>
-</div>
 
-
-<%= link_to 'TOP', pictures_path %>
+<nav aria-label="..." class="bottom-nav">
+  <ul class="pager">
+    <li class="previous"><%= link_to '← TOP', pictures_path %></li>
+  </ul>
+</nav>

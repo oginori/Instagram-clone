@@ -1,12 +1,27 @@
-<h1>Edit Profile</h1>
+<h1 class="title">Edit Profile</h1>
 
-<%= form_with(model: @user, local: true) do |f| %>
-  <%= f.text_field :email, placeholder: "Email" %><br>
-  <%= f.text_field :name, placeholder: "Name" %><br>
-  <%= f.password_field :password, placeholder: "Password" %><br>
-  <%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %><br>
-  <%= f.file_field :profile_image %>
-  <div>
-    <%= f.submit 'Sign up' %>
+<div class="main">
+  <div class="form_wrapper">
+  <%= form_with(model: @user, local: true) do |f| %>
+    <%= f.text_field :email, placeholder: "Email" %><br>
+    <%= f.text_field :name, placeholder: "Name" %><br>
+    <%= f.password_field :password, placeholder: "Password" %><br>
+    <%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %><br>
+    <%= f.label :profile_image %>
+
+    <%= image_tag(@user.profile_image.url) if @user.profile_image && @user.profile_image.url %>
+    <%= f.file_field :profile_image %><br>
+    <%= f.hidden_field :profile_image_cache %>
+
+    <div>
+      <%= f.submit 'Update' %>
+    </div>
+  <% end %>
   </div>
-<% end %>
+</div>
+
+<nav aria-label="..." class="bottom-nav">
+  <ul class="pager">
+    <li class="previous"><%= link_to '← Back', user_path %></li>
+  </ul>
+</nav>
