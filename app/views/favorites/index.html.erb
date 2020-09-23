@@ -1,0 +1,20 @@
+<h1>お気に入り一覧</h1>
+
+<% @favorites.each do |favorite| %>
+  <% unless favorite.user_id == current_user.id %>
+    <div>
+      <div>
+        <p>name</p>
+        <%= favorite.user.name %>
+      </div>
+      <div>
+        <p>picture</p>
+        <%= image_tag favorite.picture.image.url %>
+      </div>
+      <div>
+        <p>content</p>
+        <%= favorite.picture.content %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
