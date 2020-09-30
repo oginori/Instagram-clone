@@ -7,9 +7,13 @@
     <%= f.text_field :name, placeholder: "Name" %><br>
     <%= f.password_field :password, placeholder: "Password" %><br>
     <%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %><br>
-    <%= f.label :profile_image %>
 
-    <%= image_tag(@user.profile_image.url) if @user.profile_image && @user.profile_image.url %>
+    <% if @user.profile_image && @user.profile_image.url %>
+      <%= image_tag(@user.profile_image.url) %>
+    <% else %>
+      <%= "プロフィール画像が設定されていません" %>
+    <% end %>
+
     <%= f.file_field :profile_image %><br>
     <%= f.hidden_field :profile_image_cache %>
 

@@ -1,20 +1,27 @@
-<h1>お気に入り一覧</h1>
-
+<h1 class="title">お気に入り一覧</h1>
 <% @favorites.each do |favorite| %>
-  <% unless favorite.user_id == current_user.id %>
-    <div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading clearfix">
       <div>
-        <p>name</p>
+        <label>Poster：</label>
         <%= favorite.user.name %>
       </div>
+    </div>
+
+    <div class="panel-body">
       <div>
-        <p>picture</p>
-        <%= image_tag favorite.picture.image.url %>
+      <%= image_tag favorite.picture.image.url %>
       </div>
-      <div>
-        <p>content</p>
-        <%= favorite.picture.content %>
+      <div class="content">
+      <%= favorite.picture.content %>
       </div>
     </div>
+  </div>
   <% end %>
-<% end %>
+
+<nav aria-label="..." class="bottom-nav">
+  <ul class="pager">
+    <li class="previous"><%= link_to '← TOP', pictures_path %></li>
+  </ul>
+</nav>

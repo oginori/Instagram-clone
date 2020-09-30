@@ -1,1 +1,4 @@
-
+.panel-default {
+  width: 480px;
+  margin: 15px auto;
+}

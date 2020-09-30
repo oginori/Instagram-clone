@@ -1,22 +1,32 @@
+<div class="all-wrap">
+<h1 class="title">投稿一覧</h1>
+  <div class="btn-group">
+    <%= link_to 'New Post', new_picture_path, class:"btn btn-primary" %>
+  </div>
+
   <% @pictures.each do |picture| %>
-  <div class="post_group">
-    <div class="poster_info">
-    <%= picture.user.name %>
-    </diV>
-    <div class="post_picture">
+  <div class="panel panel-default">
+    <div class="panel-heading clearfix">
+      <div class="left-name">
+        <%= picture.user.name %>
+      </div>
+      <div class="right-menu">
+        <%= link_to '詳細', picture_path(picture.id) %>
+      <% if current_user.id == picture.user.id %>
+        <%= link_to '編集', edit_picture_path(picture.id) %>
+        <%= link_to '削除', picture_path(picture.id), method: :delete, data: { confirm: 'Are you sure to delete this post?' } %>
+      <% end %>
+      </div>
+    </div>
+
+    <div class="panel-body">
+      <div>
       <%= image_tag(picture.image.url) %>
-    </div>
-    <div class="post_content">
-    <%= picture.content %><br>
-    </div>
-    <div>
-    <%= link_to '詳細', picture_path(picture.id) %>
-    </div>
-    <div>
-    <%= link_to '編集', edit_picture_path(picture.id) %>
-    </div>
-    <div>
-    <%= link_to '削除', picture_path(picture.id), method: :delete, data: { confirm: 'Are you sure to delete this post?' } %>
+      </div>
+      <div class="content">
+      <%= picture.content %>
+      </div>
     </div>
   </div>
   <% end %>
+</div>

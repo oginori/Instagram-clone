@@ -8,4 +8,9 @@ class ApplicationController < ActionController::Base
       redirect_to new_session_path
     end
   end
+
+  def login_judgment
+    redirect_to new_session_path, notice: 'ログインしてください。' unless current_user
+  end
+
 end

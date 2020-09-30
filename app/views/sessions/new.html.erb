@@ -1,57 +1,65 @@
 <div class="main">
-  <h1>Instagram</h1>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+  <h1 class="title">Instagram</h1>
+  <% if @user != nil %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
+        <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
   <% end %>
 
-<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
-  <%= f.email_field :email, placeholder: "mail address" %><br>
-  <%= f.password_field :password, placeholder: "password" %>
-  <div>
-    <%= f.submit 'Log in' %>
+  <div class="form_wrapper">
+    <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+    <%= f.email_field :email, placeholder: "mail address" %><br>
+    <%= f.password_field :password, placeholder: "password" %>
+    <div>
+      <%= f.submit 'Log in' %>
+    </div>
+    <% end %>
   </div>
-<% end %>
 
-  <p class="line">or</p>
+  <div class="line-wrapper">
+    <p class="line">or</p>
+  </div>
 
-  <p>Log in with Facebook</p>
+  <div class="facebook-button">
+    <a href="">Log in with Facebook</a>
+  </div>
 
-  <p>Forget password?</p>
+  <p class="explanation">Forget password?</p>
 
 </div>
 
-<div>
-<p>Don't have an account? <%= link_to "Sign up", new_user_path %></p>
+<div class="main">
+  <p class="explanation">Don't have an account? <%= link_to "Sign up", new_user_path %></p>
 </div>
 
 <footer>
-<p>Get the app.</p>
-<div class="app_image">
-<%= image_tag 'apple_app.png' %>
-<%= image_tag 'google_app.png' %>
-</div>
+  <p>Get the app.</p>
+  <div class="app_image">
+  <%= image_tag 'apple_app.png' %>
+  <%= image_tag 'google_app.png' %>
+  </div>
 
-<div class="footer-nav clearfix">
-  <ul>
-    <li>ABOUT</li>
-    <li>HELP</li>
-    <li>PRESS</li>
-    <li>JPBS</li>
-    <li>PRIVACY</li>
-    <li>TERMS</li>
-    <li>LOCATIONS</li>
-    <li>TOP ACCOUNTS</li>
-    <li>HASHTAGS</li>
-    <li>LANGUAGE</li>
-  </ul>
-</div>
+  <div class="footer-nav clearfix">
+    <ul>
+      <li>ABOUT</li>
+      <li>HELP</li>
+      <li>PRESS</li>
+      <li>JPBS</li>
+      <li>PRIVACY</li>
+      <li>TERMS</li>
+      <li>LOCATIONS</li>
+      <li>TOP ACCOUNTS</li>
+      <li>HASHTAGS</li>
+      <li>LANGUAGE</li>
+    </ul>
+  </div>
 
-<p>©︎2020 INSTAGRAM FROM FACEBOOK</p>
+  <p>©︎2020 INSTAGRAM FROM FACEBOOK</p>
 </footer>
