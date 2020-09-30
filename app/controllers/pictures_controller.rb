@@ -16,7 +16,8 @@ class PicturesController < ApplicationController
       render :new
     else
       if @picture.save
-        redirect_to pictures_path
+        PictureMailer.picture_mail(@picture).deliver
+        redirect_to pictures_path, notice: 'Post was successfully created'
       else
         render :new
       end
