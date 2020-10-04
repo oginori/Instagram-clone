@@ -3,8 +3,8 @@
   <%= form.hidden_field :image_cache %>
   <%= form.hidden_field :content %>
   <p>本文：<%= @picture.content %></p>
-  <p>画像：<%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %></p>
-  
+  <p class="confirm_pic">画像：<%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %></p>
+
   <%= form.submit "Post" %>
   <%= form.submit "Back", name: 'back' %>
 <% end %>
